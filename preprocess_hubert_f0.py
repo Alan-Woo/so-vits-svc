@@ -140,6 +140,7 @@ if __name__ == "__main__":
         '--num_processes', type=int, default=1, help='You are advised to set the number of processes to the same as the number of CPU cores'
     )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    torch.cuda.empty_cache()
     args = parser.parse_args()
     f0p = args.f0_predictor
     print(speech_encoder)
